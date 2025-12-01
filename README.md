@@ -18,4 +18,4 @@ make setup
 
 ### Next Steps
 
-For detailed guidelines and project instructions, please read [Guidelines.md](./Guidelines.md).
+For detailed guidelines and project instructions, please read [Guidelines.md](./GUIDELINES.md).
