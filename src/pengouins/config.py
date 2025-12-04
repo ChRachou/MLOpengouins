@@ -6,9 +6,8 @@ from pathlib import Path
 class Config:
     """Configuration class for managing environment variables."""
     
-    MODEL_STORAGE_MODE = os.getenv("MODEL_STORAGE_MODE", "local")
     # Storage configuration
-    
+    MODEL_STORAGE_MODE = os.getenv("MODEL_STORAGE_MODE", "local")
     # MLflow configuration
     MLFLOW_TRACKING_URI = os.getenv("MLFLOW_TRACKING_URI", "mlruns")
     MLFLOW_EXPERIMENT_NAME = os.getenv("MLFLOW_EXPERIMENT_NAME", "penguin_classification")

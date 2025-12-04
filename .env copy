@@ -1,0 +1,12 @@
+NAME=Bob
+MLFLOW_LOCAL_PORT=8888
+#MLFLOW_TRACKING_URI=http://127.0.0.1:8888
+MLFLOW_TRACKING_URI=https://mlflow-dot-ml-eng-sandbox-7912.ew.r.appspot.com
+MODEL_STORAGE_MODE=local
+MLFLOW_EXPERIMENT_NAME=little-pengouins
+
+IMAGE=pengouin
+PORT=8000
+LOCATION=europe-west9
+PROJECT_ID=ml-eng-sandbox-7912
+REPOSITORY=pengouins-repo

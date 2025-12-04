@@ -16,6 +16,14 @@ cd MLOps_week
 make setup
 ```
 
+copy .env and modify with your settings:
+```
+echo "dotenv" >> .envrc
+direnv allow
+copy .env.copy .env
+```
+
+
 ### Next Steps
 
 For detailed guidelines and project instructions, please read [Guidelines.md](./docs/02_Experiment_Tracking_Guidelines.md).

@@ -37,7 +37,7 @@ def make_pred():
     _, X_preproc = preprocess_data(X, preprocessor=preprocessor)
 
     # Load model
-    model = load_model(model_name="logistic_reg")
+    model = load_model(model_name="pengouin_classifier")
 
     # Make predictions
     predictions = model.predict(X_preproc)

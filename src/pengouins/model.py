@@ -27,7 +27,7 @@ def train_model(  X_train : pd.DataFrame
         
     logi = LogisticRegression(**model_params)
     logi.fit(X_train, y_train)
-    save_model(logi,"logistic_reg", X=X_train)
+    save_model(logi,"pengouin_classifier", X=X_train)
     return logi
     
 
