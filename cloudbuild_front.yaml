@@ -1,0 +1,38 @@
+steps:
+  # Build the Streamlit front image
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'build'
+      - '-t'
+      - '${_LOCATION}-docker.pkg.dev/${PROJECT_ID}/${_REPOSITORY}/${_IMAGE_FRONT}:latest'
+      - '-f'
+      - 'front_pengouin/Dockerfile'
+      - '.'
+
+  # Push the image to Artifact Registry
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'push'
+      - '${_LOCATION}-docker.pkg.dev/${PROJECT_ID}/${_REPOSITORY}/${_IMAGE_FRONT}:latest'
+
+  # Deploy to Cloud Run
+  - name: 'gcr.io/cloud-builders/gke-deploy'
+    args:
+      - run
+      - --deploy
+      - --image=${_LOCATION}-docker.pkg.dev/${PROJECT_ID}/${_REPOSITORY}/${_IMAGE_FRONT}:latest
+      - --service=${_SERVICE_FRONT}
+      - --region=${_LOCATION}
+
+images:
+  - '${_LOCATION}-docker.pkg.dev/${PROJECT_ID}/${_REPOSITORY}/${_IMAGE_FRONT}:latest'
+
+substitutions:
+  _LOCATION: 'europe-west9'
+  _REPOSITORY: 'docker-repo'
+  _IMAGE_FRONT: 'penguin-front'
+  _SERVICE_FRONT: 'penguin-front'
+
+options:
+  machineType: 'N1_HIGHCPU_8'
+  logging: CLOUD_LOGGING_ONLY
